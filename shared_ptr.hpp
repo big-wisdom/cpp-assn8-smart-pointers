@@ -9,7 +9,7 @@ namespace usu
         public:
             shared_ptr(T* t) : pointer(t){}
 
-            shared_ptr(T[] t, unsigned int n) : pointer(t){}
+            //shared_ptr(T[] t, unsigned int n) : pointer(t){}
 
             T* pointer;
 

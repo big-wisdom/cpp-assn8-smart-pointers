@@ -53,17 +53,17 @@ void demoSharedPointer()
     usu::shared_ptr<std::string> p2a = usu::make_shared<std::string>();
 
     std::shared_ptr<int> p3 = std::make_shared<int>(10);
-    usu::shared_ptr<int> p4 = usu::make_shared<int>(10);
+    //usu::shared_ptr<int> p4 = usu::make_shared<int>(10);
 
     std::shared_ptr<std::string> p5 = std::make_shared<std::string>();
-    usu::shared_ptr<std::string> p6 = usu::make_shared<std::string>();
-    usu::shared_ptr<std::string> p6b = usu::make_shared<std::string>("Hi Mom!");
+    //usu::shared_ptr<std::string> p6 = usu::make_shared<std::string>();
+    //usu::shared_ptr<std::string> p6b = usu::make_shared<std::string>("Hi Mom!");
 
     std::shared_ptr<MyClass> p7 = std::make_shared<MyClass>();
     usu::shared_ptr<MyClass> p8 = usu::make_shared<MyClass>();
 
     std::shared_ptr<MyClass> p9 = std::make_shared<MyClass>("Test");
-    usu::shared_ptr<MyClass> p10 = usu::make_shared<MyClass>("Test");
+    //usu::shared_ptr<MyClass> p10 = usu::make_shared<MyClass>("Test");
 
     std::shared_ptr<MyClass> p11 = std::make_shared<MyClass>("Test", 2);
     usu::shared_ptr<MyClass> p12 = usu::make_shared<MyClass>("Test", 2);
@@ -113,9 +113,9 @@ void demoSharedPointer()
     MyClass* y = p14.get();
     y->showMessage("from p14.get()");
 
-    usu::shared_ptr<MyClass[]> a1 = usu::make_shared_array<MyClass, 4>();
-    for (unsigned int i = 0; i < a1.size(); i++)
-    {
-        a1[i].showMessage("this is a test");
-    }
+//    usu::shared_ptr<MyClass[]> a1 = usu::make_shared_array<MyClass, 4>();
+//    for (unsigned int i = 0; i < a1.size(); i++)
+//    {
+//        a1[i].showMessage("this is a test");
+//    }
 }
