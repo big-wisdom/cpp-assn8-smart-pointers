@@ -7,6 +7,8 @@ namespace usu
     class shared_ptr
     {
         public:
+            
+
             shared_ptr(T* t) : pointer(t), count(new unsigned int(1)){}
 
             shared_ptr(const shared_ptr &s) : pointer(s.pointer), count(s.count)
@@ -14,6 +16,13 @@ namespace usu
                 *count += 1;
             }
             //shared_ptr(T[] t, unsigned int n) : pointer(t){}
+            //
+            ~shared_ptr()
+            {
+                *count -= 1;
+                if(*count == 0)
+                    delete count;
+            }
 
             T* pointer;
 
@@ -29,13 +38,10 @@ namespace usu
 
             shared_ptr& operator=(shared_ptr s)
             {
-                //if(this != s)
-                //{
-                std::cout << "count: " << count << std::endl;
                 *count -= 1;
-                    count = s.count;
-                    pointer = s.pointer;
-                //}
+                count = s.count;
+                *count += 1;
+                pointer = s.pointer;
                 return *this;
             }
 
