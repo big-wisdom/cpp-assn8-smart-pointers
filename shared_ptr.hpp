@@ -7,20 +7,34 @@ namespace usu
     class shared_ptr
     {
         public:
-            shared_ptr(T* t) : pointer(t){}
+            shared_ptr(T* t) : pointer(t), count(new unsigned int(1)){}
 
+            shared_ptr(const shared_ptr &s) : pointer(s.pointer), count(s.count)
+            {
+                *count += 1;
+            }
             //shared_ptr(T[] t, unsigned int n) : pointer(t){}
 
             T* pointer;
 
-            std::uint64_t use_count()
+            unsigned int use_count()
             {
-                return count;
+                return *count;
             }
 
             T* get()
             {
                 return pointer;
+            }
+
+            shared_ptr& operator=(shared_ptr s)
+            {
+                //if(this != s)
+                //{
+                    count = s.count;
+                    pointer = s.pointer;
+                //}
+                return *this;
             }
 
             T* operator->()
@@ -34,7 +48,7 @@ namespace usu
             }
 
         private:
-            std::uint64_t count = 0;
+            unsigned int* count;
 
     };
 

@@ -49,8 +49,8 @@ int main()
 void demoSharedPointer()
 {
     std::shared_ptr<int> p1 = std::make_shared<int>();
-    usu::shared_ptr<int> p2 = usu::make_shared<int>();
-    usu::shared_ptr<std::string> p2a = usu::make_shared<std::string>();
+    //usu::shared_ptr<int> p2 = usu::make_shared<int>();
+    //usu::shared_ptr<std::string> p2a = usu::make_shared<std::string>();
 
     std::shared_ptr<int> p3 = std::make_shared<int>(10);
     //usu::shared_ptr<int> p4 = usu::make_shared<int>(10);
@@ -60,7 +60,7 @@ void demoSharedPointer()
     //usu::shared_ptr<std::string> p6b = usu::make_shared<std::string>("Hi Mom!");
 
     std::shared_ptr<MyClass> p7 = std::make_shared<MyClass>();
-    usu::shared_ptr<MyClass> p8 = usu::make_shared<MyClass>();
+    //usu::shared_ptr<MyClass> p8 = usu::make_shared<MyClass>();
 
     std::shared_ptr<MyClass> p9 = std::make_shared<MyClass>("Test");
     //usu::shared_ptr<MyClass> p10 = usu::make_shared<MyClass>("Test");
