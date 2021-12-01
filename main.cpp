@@ -113,9 +113,9 @@ void demoSharedPointer()
     MyClass* y = p14.get();
     y->showMessage("from p14.get()");
 
-//    usu::shared_ptr<MyClass[]> a1 = usu::make_shared_array<MyClass, 4>();
-//    for (unsigned int i = 0; i < a1.size(); i++)
-//    {
-//        a1[i].showMessage("this is a test");
-//    }
+    usu::shared_ptr<MyClass[]> a1 = usu::make_shared_array<MyClass, 4>();
+    for (unsigned int i = 0; i < a1.size(); i++)
+    {
+        a1[i].showMessage("this is a test");
+    }
 }

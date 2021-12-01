@@ -7,16 +7,13 @@ namespace usu
     class shared_ptr
     {
         public:
-            
-
             shared_ptr(T* t) : pointer(t), count(new unsigned int(1)){}
 
             shared_ptr(const shared_ptr &s) : pointer(s.pointer), count(s.count)
             {
                 *count += 1;
             }
-            //shared_ptr(T[] t, unsigned int n) : pointer(t){}
-            //
+
             ~shared_ptr()
             {
                 *count -= 1;
@@ -35,6 +32,7 @@ namespace usu
             {
                 return pointer;
             }
+
 
             shared_ptr& operator=(shared_ptr s)
             {
@@ -58,6 +56,44 @@ namespace usu
         private:
             unsigned int* count;
 
+    };
+
+    // getting some weird warnings
+    template <typename T>
+    class shared_ptr<T[]>
+    {
+        public:
+            shared_ptr(T* t, std::size_t number) : pointer(t), count(new unsigned int(1)), thisSize(number){}
+            ~shared_ptr()
+            {
+                *count -= 1;
+
+                if (count == 0)
+                {
+                    delete[] pointer;
+                    delete count;
+                }
+            }
+            
+            T& operator[](int index)
+            {
+                if (static_cast<std::size_t>(index) >= thisSize)
+                {
+                    std::cout << "Index " << index << " out of bounds" << std::endl;
+                    exit(1);
+                }
+
+                return pointer[index];
+            }
+
+            std::size_t size()
+            {
+                return thisSize;
+            }
+        private:
+            T* pointer;
+            unsigned int* count;
+            std::size_t thisSize;
     };
 
     template <typename T, typename... Args>
