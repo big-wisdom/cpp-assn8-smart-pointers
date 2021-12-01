@@ -31,6 +31,8 @@ namespace usu
             {
                 //if(this != s)
                 //{
+                std::cout << "count: " << count << std::endl;
+                *count -= 1;
                     count = s.count;
                     pointer = s.pointer;
                 //}
